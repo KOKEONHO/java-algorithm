@@ -73,3 +73,9 @@ letterLogList.sort((s1, s2) -> {
 Arrays.sort(points, Comparator.comparingInt(a -> a[0]));
 ```
 람다 표현식을 사용하여 2차원 배열의 원소들인 1차원 배열의 첫 번째 원소 값을 기준으로 오름차순 정렬
+
+##### 1669. Merge In Between Linked Lists
+
+- `Single-Linked-List`의 개념:
+  - (지금 이 문제에서는)`next` 방향으로 밖에 없음
+  - 따라서 삽입을 진행할 때 주의해야 함
