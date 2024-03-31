@@ -84,3 +84,9 @@ Arrays.sort(points, Comparator.comparingInt(a -> a[0]));
 - `Single-Linked-List`의 개념:
   - (지금 이 문제에서는)`next` 방향으로 밖에 없음
   - 따라서 삽입을 진행할 때 주의해야 함
+
+##### 234. Palindrome Linked List
+
+처음에는 객체 참조를 하여 풀어야하는 `ListNode` 문제 특성 상 어떻게 원본 값에 영향을 주지 않고 while문을 돌리지 고민했다.
+
+최근에 푼 문제들을 다 그런 식으로 접근해서 그런 것 같은데, 풀이는 아주 단순하게 그냥 ArrayList 하나 추가로 생성해서 거기에 `val`들을 담고 Palindrome 체크를 하면 되는 것이었다.
