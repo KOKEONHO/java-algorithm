@@ -20,7 +20,7 @@
 ##### 344. Reverse String
 원시 자료형인 문자 배열 직접 조작 = 실행 속도 매우 빠름
 
-#### 819. Most Common Word
+##### 819. Most Common Word
 
 - [ ] 나중에 다시 풀기  
 
@@ -34,6 +34,11 @@ Map<String, Integer> wordCount = new HashMap<>();
 Collections.max(wordCount.entrySet(), Map.Entry.comparingByValue()).getKey();
 ```
 이런 식으로 
+
+##### 206. Reverse Linked List
+
+`Single-Linked-List` 문제
+단순히 순서를 뒤집기만 하면 되는 문제
 
 #### MEDIUM
 
