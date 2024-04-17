@@ -1,5 +1,7 @@
 package leetcode.easy;
 
+import java.util.HashMap;
+
 public class TwoSum {
 
 	public int[] twoSumByBruteForce(int[] nums, int target) {
@@ -16,6 +18,21 @@ public class TwoSum {
 		}
 		return null;
 
+	}
+
+	public static int[] twoSumByHashMap(int[] nums, int target) {
+
+		HashMap<Integer, Integer> hashMap = new HashMap<>();
+		int num1 = 0, num2 = 0;
+
+		for (int i = 0; i < nums.length; i++) {
+			if (hashMap.containsKey(target - nums[i])) {
+				return new int[] {i, hashMap.get(target - nums[i])};
+			}
+			hashMap.put(nums[i], i);
+		}
+
+		return null;
 	}
 
 }
