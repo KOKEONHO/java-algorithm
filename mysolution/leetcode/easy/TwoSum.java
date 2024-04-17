@@ -2,7 +2,7 @@ package leetcode.easy;
 
 public class TwoSum {
 
-	public int[] twoSum(int[] nums, int target) {
+	public int[] twoSumByBruteForce(int[] nums, int target) {
 
 		int num1, num2;
 		for (int i = 0; i < nums.length; i++) {
