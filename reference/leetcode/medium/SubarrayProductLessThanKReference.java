@@ -7,17 +7,19 @@ public class SubarrayProductLessThanKReference {
 		int result = 0;
 		int current = 1;
 
-		for (int right = 0; right < nums.length && k > 0; right++) {
-			while (current * nums[right] >= k && left < right) {
+		if (k <= 1) {
+			return 0;
+		}
+
+		for (int right = 0; right < nums.length; right++) {
+			current *= nums[right];
+
+			while (current >= k) {
 				current /= nums[left];
 				left++;
 			}
 
-			current *= nums[right];
-
-			if (current < k) {
-				result += right - left + 1;
-			}
+			result += right - left + 1;
 		}
 
 		return result;
