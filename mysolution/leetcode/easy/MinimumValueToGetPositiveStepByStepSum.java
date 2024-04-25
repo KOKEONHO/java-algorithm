@@ -9,14 +9,17 @@ public class MinimumValueToGetPositiveStepByStepSum {
 
 		prefix[0] = nums[0];
 
+		int minimum = prefix[0];
+
 		for (int i = 1; i < prefix.length; i++) {
 			prefix[i] = prefix[i - 1] + nums[i];
+			if (minimum > prefix[i]) {
+				minimum = prefix[i];
+			}
 		}
 
-		Arrays.sort(prefix);
-
-		if (prefix[0] < 0) {
-			return -prefix[0] + 1;
+		if (minimum < 0) {
+			return -minimum + 1;
 		}
 		return 1;
 
