@@ -7,9 +7,11 @@ public class ContiguousArray {
 	public int findMaxLength(int[] nums) {
 
 		int prefix = 0;
-		int maxLength = 0;
+		int result = 0;
 		int numsLength = nums.length;
-		Map<Integer, Integer> hashMap = new HashMap<>();
+		Map<Integer, Integer> counter = new HashMap<>();
+
+		counter.put(0, -1);
 
 		for (int i = 0; i < numsLength; i++) {
 			if (nums[i] == 0) {
@@ -17,21 +19,16 @@ public class ContiguousArray {
 			}
 		}
 
-		hashMap.put(0, -1);
-		// key: prefix
-		// value: index
-		// 0(prefix) -> -1(index)
-
 		for (int i = 0; i < numsLength; i++) {
 			prefix += nums[i];
-			if (hashMap.containsKey(prefix)) {
-				maxLength = Math.max(maxLength, i - hashMap.get(prefix));
+			if (counter.containsKey(prefix)) {
+				result = Math.max(result, i - counter.get(prefix));
 			} else {
-				hashMap.put(prefix, i);
+				counter.put(prefix, i);
 			}
 		}
 
-		return maxLength;
+		return result;
 
 	}
 }
