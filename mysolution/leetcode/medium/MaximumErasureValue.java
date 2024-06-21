@@ -1,28 +1,34 @@
 package leetcode.medium;
 
-import java.util.HashSet;
-import java.util.Set;
-
 public class MaximumErasureValue {
+
 	public int maximumUniqueSubarray(int[] nums) {
 
 		int sum = 0;
 		int left = 0;
 		int result = 0;
-		Set<Integer> numbers = new HashSet<>();
+		int[] numbers = new int[10001];
 
 		for (int right = 0; right < nums.length; right++) {
-			int number = nums[right];
-			while (numbers.contains(number)) {
-				numbers.remove(nums[left]);
-				sum -= nums[left++];
+			int rightNumber = nums[right];
+			if (numbers[rightNumber] < 1) {
+				numbers[rightNumber]++;
+				sum += rightNumber;
+				continue;
 			}
-			numbers.add(number);
-			sum += number;
 			result = Math.max(result, sum);
+			while (numbers[nums[right]] > 0) {
+				int leftNumber = nums[left];
+				numbers[leftNumber]--;
+				sum -= leftNumber;
+				left++;
+			}
+			numbers[rightNumber]++;
+			sum += rightNumber;
 		}
 
-		return result;
+		return Math.max(result, sum);
 
 	}
+
 }
