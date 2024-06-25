@@ -42,6 +42,10 @@ Collections.max(wordCount.entrySet(), Map.Entry.comparingByValue()).getKey();
 
 #### MEDIUM
 
+##### 791. Custom Sort String
+
+`HashMap` 문제에서 특정 조건 하에 `key`의 개수를 갱신해야 할 때에는 `value`를 1씩 감소시키면서 반복을 수행하는 접근법도 고려
+
 ##### 937. Reorder Data in Log Files
 
 - [ ] 나중에 다시 풀기
