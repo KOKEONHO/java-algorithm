@@ -113,3 +113,12 @@ index++;
 ```
 
 어차피 숫자 뒤엔 '[', 마지막 글자 뒤엔 ']'는 오는 것이 자명하니, 이를 이용한 것이다.
+
+그리고 주어진 숫자를 자릿 수를 고려한 수로 만드는 방법도 알아두면 나중에 써먹을 수 있을 것 같다는 생각이 들었다.
+
+```java
+int k = 0;
+while (index < s.length() && Character.isDigit(s.charAt(index))) {
+	k = k * 10 + s.charAt(index++) - '0';
+}
+```
