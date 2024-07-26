@@ -11,6 +11,26 @@
 이 경우 조회는 평균적으로 O(1) 가능  
 최악의 경우에는 O(n)이 될 수 있지만, 그럴 가능성 희박
 
+##### 112. Path Sum
+
+똑같은 재귀를 다루는 코드임에도 내 코드보다 훨씬 가독성이 뛰어나고 재귀의 본연에 가까운 코드 같아서 참조하기 위해 기록
+
+```java
+if ((root.left == null) && (root.right == null)) {
+	return targetSum == 0;
+}
+```
+
+`true` 값 반환을 위한 변수 할당 말고도 `targetSum`의 값 비교를 통한 반환 방식을 익히고 싶음
+
+`root.left`와 `root.right` 둘 중 하나의 반환 값만 `true`여도 `true`를 반환하는 식의 풀이 방식은 동일했지만, 내 풀이에서는 모두 변수에 담아 반환하려 했던 반면
+
+```java
+return hasPathSum(root.left, targetSum) || hasPathSum(root.right, targetSum);
+```
+
+변수 할당 없이 반환하는 위와 같은 방식 사용이 더 좋아보임
+
 ##### 125. Valid Palindrome
 `Character.isLetterOrDigit()`: 특정 문자가 영숫자인지 판별  
 
