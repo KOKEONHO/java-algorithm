@@ -1,34 +1,27 @@
 package leetcode.medium;
 
-import java.util.PriorityQueue;
+import java.util.Arrays;
 
 public class MaximumMatchingOfPlayersWithTrainers {
 
     public int matchPlayersAndTrainers(int[] players, int[] trainers) {
 
-        int result = 0;
+        Arrays.sort(players);
+        Arrays.sort(trainers);
 
-        PriorityQueue<Integer> playersHeap = new PriorityQueue<>();
-        PriorityQueue<Integer> trainersHeap = new PriorityQueue<>();
+        int result = 0;
+        int trainersPointer = 0;
+        int trainersLength = trainers.length;
 
         for (int player : players) {
-            playersHeap.add(player);
-        }
-
-        for (int trainer : trainers) {
-            trainersHeap.add(trainer);
-        }
-
-        while (!playersHeap.isEmpty()) {
-            int player = playersHeap.poll();
-            while (!trainersHeap.isEmpty() && trainersHeap.peek() < player) {
-                trainersHeap.poll();
+            while (trainersPointer < trainersLength && player > trainers[trainersPointer]) {
+                trainersPointer++;
             }
-            if (trainersHeap.isEmpty()) {
+            if (trainersPointer == trainersLength) {
                 break;
             }
-            trainersHeap.poll();
             result++;
+            trainersPointer++;
         }
 
         return result;
