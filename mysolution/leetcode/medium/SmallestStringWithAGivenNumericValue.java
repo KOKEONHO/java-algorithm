@@ -1,34 +1,29 @@
 package leetcode.medium;
 
+import java.util.Arrays;
+
 public class SmallestStringWithAGivenNumericValue {
 
     public String getSmallestString(int n, int k) {
 
-        Map<Integer, Character> map = new HashMap<>();
-        StringBuilder sb = new StringBuilder();
+        char[] result = new char[n];
 
-        for (int i = 'a'; i <= 'z'; i++) {
-            map.put(i - (int) 'a' + 1, (char) i);
-        }
+        Arrays.fill(result, 'a');
 
-        int sum = 0;
-
-        for (int i = 0; i < n; i++) {
-            sb.append("a");
-            sum++;
-        }
+        int sum = n;
+        int index = n;
 
         while (sum < k) {
-            n--;
-            sb.setCharAt(n, 'z');
+            index--;
+            result[index] = 'z';
             sum += 25;
         }
 
         if (sum > k) {
-            sb.setCharAt(n, map.get(26 - (sum - k)));
+            result[index] = (char) ((int) 'z' - (sum - k));
         }
 
-        return sb.toString();
+        return new String(result);
 
     }
 }
